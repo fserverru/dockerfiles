@@ -2,7 +2,7 @@
 Alpine Linux based Docker image with vlmcsd emu
 
 ```
-docker run -d -p 1688:1688 --restart=always --name vlmcsd fserver/alpine-vlmcsd
+docker run -d -p 1688:1688 --restart=always --name vlmcsd fserver/vlmcsd
 ```
 
-Docker: [fserver/alpine-vlmcsd](https://hub.docker.com/r/fserver/alpine-vlmcsd/ "")
+Docker: [fserver/vlmcsd](https://hub.docker.com/r/fserver/vlmcsd/ "")
