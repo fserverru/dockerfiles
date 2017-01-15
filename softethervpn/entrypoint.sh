@@ -50,13 +50,13 @@ if [ ! -f /usr/vpnserver/vpn_server.config ]; then
 	export PASSWORD='**'
 
 	# set password for hub
-	HPW=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 16 | head -n 1)
-	/usr/bin/vpncmd localhost /SERVER /HUB:DEFAULT /CSV /CMD SetHubPassword ${HPW}
+	#[[ ! $HPW ]] && HPW=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 16 | head -n 1)
+	/usr/bin/vpncmd localhost /SERVER /HUB:DEFAULT /CSV /CMD SetHubPassword ${PASSWORD}
 
 	# set password for server
-	SPW=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 20 | head -n 1)
-	echo "SPW      : ${SPW}"
-	/usr/bin/vpncmd localhost /SERVER /CSV /CMD ServerPasswordSet ${SPW}
+	#[[ ! $SPW ]] && SPW=$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | fold -w 20 | head -n 1)
+	#echo "SPW      : ${SPW}"
+	/usr/bin/vpncmd localhost /SERVER /CSV /CMD ServerPasswordSet ${PASSWORD}
 
 	/usr/bin/vpnserver stop 2>&1 > /dev/null
 
