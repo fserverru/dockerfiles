@@ -12,7 +12,7 @@ docker run  -v <configPath>/squid.conf:/etc/squid/squid.conf:ro \
             -v /var/log/squid:/var/log/squid:rw \
             -v /etc/localtime:/etc/localtime:ro \
             -p 3128:3128 -p 3129:3129 \
-            --name squid fserver/squid
+            --name squid -d -t fserver/squid
 ```
 
 
@@ -25,5 +25,5 @@ docker run  -v <configPath>/squid.conf:/etc/squid/squid.conf:ro \
             -v /var/log/squid:/var/log/squid:rw \
             -v /etc/localtime:/etc/localtime:ro \
             --privileged=true --net=host \
-            --name squid fserver/squid
+            --name squid -d -t fserver/squid
 ```
