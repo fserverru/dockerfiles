@@ -10,8 +10,6 @@ RUN set -xe \
     && rm -rf /var/cache/apk/* \
     && chmod +x /start.sh
 
-VOLUME /etc/squid/squid.conf /var/cache/squid /var/log/squid
-
 EXPOSE 3128 3129
 
 ENTRYPOINT ["/start.sh"]
