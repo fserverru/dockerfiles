@@ -10,7 +10,7 @@ RUN set -xe \
     && rm -rf /var/cache/apk/* \
     && chmod +x /start.sh
 
-VOLUME /etc/squid/squid.conf /var/cache/squid /var/log/squid /etc/localtime
+VOLUME /etc/squid/squid.conf /var/cache/squid /var/log/squid
 
 EXPOSE 3128 3129
 
