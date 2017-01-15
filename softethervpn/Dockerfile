@@ -11,7 +11,7 @@ LABEL version="${VERSION}"
 ENV LANG=en_US.UTF-8
 
 RUN set -e \
-    && apk add --no-cache ${BUILD_PKG} iptables iproute2 readline ncurses zlib \
+    && apk add --no-cache ${BUILD_PKG} iptables iproute2 readline ncurses zlib openssl \
     && mkdir -p ${TEMP_DIR} \
     && git clone --branch "v${VERSION}" --depth 1 https://github.com/SoftEtherVPN/SoftEtherVPN.git ${TEMP_DIR} \
     && cd ${TEMP_DIR} \
