@@ -5,7 +5,7 @@ Alpine Linux based Docker image with Asterisk PBX
 
 1. Passthrough all port to container
 ```
-docker run -d -t --privileged=true --net="host" --name asterisk fserver/asterisk
+docker run -d -t --privileged=true --net=host --name asterisk fserver/asterisk
 ```
 
 2. Passthrough only ones you need

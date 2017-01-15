@@ -3,5 +3,5 @@ Alpine Linux based Docker image with latest Samba
 
 ## Usage
 ```
-docker run -d -t -v ./smb.conf:/etc/samba/smb.conf -v /data/share:/share -t net -restart=always fserver/samba
+docker run -d -t -v /your/smb.conf:/etc/samba/smb.conf -v /public/share:/share --restart=always --net=host --name samba fserver/samba
 ```

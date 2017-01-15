@@ -1,10 +1,17 @@
 FROM alpine
 MAINTAINER docker <docker@fserver.ru>
 
+ENV LANG=ru
+
+COPY start.sh /
+
 RUN set -xe \
-    && apk add -U squid \
-    && rm -rf /var/cache/apk/*
+    && apk add --update --no-cache squid squid-lang-${LANG} \
+    && rm -rf /var/cache/apk/* \
+    && chmod +x /start.sh
 
-EXPOSE 3128 3130
+VOLUME /etc/squid/squid.conf /var/cache/squid /var/log/squid /etc/localtime
 
-ENTRYPOINT ["/usr/sbin/squid", "-NYCd1"]
+EXPOSE 3128 3129
+
+ENTRYPOINT ["/start.sh"]
