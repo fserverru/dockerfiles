@@ -3,7 +3,7 @@ Squid
 
 Squid 3.5.x with Alpine Linux
 
-How to use
+Normal Proxy
 =========
 
 ```
@@ -11,6 +11,19 @@ docker run  -v <configPath>/squid.conf:/etc/squid/squid.conf:ro \
             -v <configPath/cache:/var/cache/squid:rw \
             -v /var/log/squid:/var/log/squid:rw \
             -v /etc/localtime:/etc/localtime:ro \
-            -p 3128:3128 \
-            fserver/squid
+            -p 3128:3128 -p 3129:3129 \
+            --name squid fserver/squid
+```
+
+
+Transparent Proxy
+=========
+
+```
+docker run  -v <configPath>/squid.conf:/etc/squid/squid.conf:ro \
+            -v <configPath/cache:/var/cache/squid:rw \
+            -v /var/log/squid:/var/log/squid:rw \
+            -v /etc/localtime:/etc/localtime:ro \
+            --privileged=true --net=host \
+            --name squid fserver/squid
 ```
