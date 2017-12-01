@@ -3,7 +3,7 @@ MAINTAINER docker <docker@fserver.ru>
 
 ENV BUILD_PKG="tar gcc git curl expat libssh2 pcre libc-dev readline-dev zlib-dev openssl-dev ncurses-dev make"
 ENV TEMP_DIR="/tmp/softethervpn"
-ENV VERSION=4.22-9634-beta
+ENV VERSION=4.23-9647-beta
 
 LABEL description="SoftEtherVPN Server"
 LABEL version="${VERSION}"
